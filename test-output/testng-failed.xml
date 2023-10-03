@@ -3,11 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.api.testscripts.BDD">
+      <class name="com.api.testscripts.GetSingleUser">
         <methods>
-          <include name="newPost"/>
+          <include name="tearDown"/>
+          <include name="SingleUser"/>
+          <include name="setUp"/>
         </methods>
-      </class> <!-- com.api.testscripts.BDD -->
+      </class> <!-- com.api.testscripts.GetSingleUser -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

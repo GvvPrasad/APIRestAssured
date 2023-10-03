@@ -1,22 +1,28 @@
 package com.api.testscripts;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import io.restassured.RestAssured;
-import io.restassured.response.Response;
+import com.api.base.Base;
+import com.api.objectrespo.AppObjectRespo;
+import com.aventstack.extentreports.Status;
 
-public class GetSingleUser {
-	
+import static io.restassured.RestAssured.*;
+import static io.restassured.matcher.RestAssuredMatchers.*;
+import static org.hamcrest.Matchers.*;
+
+public class GetSingleUser extends Base {
+
 	@Test
-	void singleUser() {
+	public static void SingleUser() {
 		
-		// Response, RestAssured - are classes from rest assured libries
-		
-		Response response = RestAssured.get("https://reqres.in/api/users/2");
-		System.out.println(response.getStatusCode());
-		System.out.println(response.getBody().asPrettyString());
-		
-		Assert.assertEquals(response.getStatusCode(), 201);
+		test =extent.createTest("Get Single user");
+
+		String response = given()
+				.when().get("https://reqres.in/api/users?page=2")
+				.then().statusCode(200).extract().body().asPrettyString();
+
+		System.out.println(response);
+		test.log(Status.INFO, response);
 	}
+
 }

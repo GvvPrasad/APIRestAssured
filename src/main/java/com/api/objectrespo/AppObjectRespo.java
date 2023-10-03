@@ -1,4 +1,4 @@
-package com.api.base;
+package com.api.objectrespo;
 
 import java.io.FileInputStream;
 import java.text.SimpleDateFormat;
@@ -13,12 +13,12 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
+
 public class AppObjectRespo {
 
 	// Project
 	public static String projectPath = System.getProperty("user.dir");
-	public static String timestamp = new SimpleDateFormat("dd_MM_yyyy HH:mm").format(Calendar.getInstance().getTime())
-			.replaceAll(":", "_");
+	public static String timestamp = new SimpleDateFormat("dd_MM_yyyy HH:mm").format(Calendar.getInstance().getTime()).replaceAll(":", "_");
 
 	// Application
 	public static String propertiesFile = projectPath + "\\src\\main\\resources\\App.properties";
